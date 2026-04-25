@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEXCON Technologies</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#1a3c6e;
+  --orange:#f47920;
+  --dark:#1a1a2e;
+  --light:#f5f7fa;
+  --gray:#6b7280;
+  --white:#fff;
+}
+body{font-family:'Barlow',sans-serif;background:#fff;color:#1a1a2e;scroll-behavior:smooth;}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:999;
+  background:rgba(26,60,110,0.97);
+  backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:70px;
+  box-shadow:0 2px 20px rgba(0,0,0,0.3);
+}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo img{height:44px;width:44px;object-fit:contain;border-radius:4px;}
+.nav-brand{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:1px;}
+.nav-brand span{color:#f47920;}
+.nav-links{display:flex;gap:28px;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:#f47920;}
+.nav-cta{background:#f47920;color:#fff;padding:9px 22px;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:background .2s;}
+.nav-cta:hover{background:#d4600e;}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#0d1f3c 0%,#1a3c6e 50%,#0d2b55 100%);
+  min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;right:0;width:55%;height:100%;
+  background:linear-gradient(135deg,transparent 30%,rgba(244,121,32,0.08) 100%);
+}
+.hero-grid{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-content{max-width:1200px;margin:0 auto;padding:80px 40px;position:relative;z-index:2;display:flex;align-items:center;gap:80px;}
+.hero-text{flex:1;}
+.hero-badge{display:inline-block;background:rgba(244,121,32,0.15);border:1px solid rgba(244,121,32,0.4);color:#f47920;padding:6px 18px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:64px;font-weight:800;color:#fff;line-height:1.05;margin-bottom:20px;}
+.hero-title span{color:#f47920;}
+.hero-subtitle{font-size:18px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:36px;max-width:520px;}
+.hero-tagline{display:flex;gap:24px;margin-bottom:40px;}
+.hero-tagline-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.hero-tagline-dot{width:6px;height:6px;border-radius:50%;background:#f47920;}
+.hero-actions{display:flex;gap:16px;}
+.btn-primary{background:#f47920;color:#fff;padding:14px 32px;border-radius:4px;font-weight:700;font-size:15px;text-decoration:none;transition:all .2s;display:inline-block;}
+.btn-primary:hover{background:#d4600e;transform:translateY(-1px);}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);padding:14px 32px;border-radius:4px;font-weight:600;font-size:15px;text-decoration:none;transition:all .2s;display:inline-block;}
+.btn-outline:hover{border-color:#f47920;color:#f47920;}
+.hero-visual{flex:0 0 300px;text-align:center;}
+.hero-logo-wrap{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px;backdrop-filter:blur(10px);}
+.hero-logo-wrap img{width:220px;height:220px;object-fit:contain;}
+.hero-years{margin-top:20px;}
+.hero-years-num{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:800;color:#f47920;}
+.hero-years-text{color:rgba(255,255,255,0.6);font-size:13px;letter-spacing:1px;text-transform:uppercase;}
+
+/* STATS */
+.stats-bar{background:#f47920;padding:20px 40px;}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;}
+.stat-item{text-align:center;color:#fff;}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;}
+.stat-label{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:.85;}
+
+/* SECTION */
+section{padding:90px 40px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-tag{color:#f47920;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:800;color:#1a3c6e;line-height:1.1;margin-bottom:16px;}
+.section-desc{color:#6b7280;font-size:17px;line-height:1.7;max-width:600px;}
+
+/* SERVICES */
+.services{background:#f5f7fa;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px;}
+.service-card{background:#fff;border-radius:10px;padding:36px 28px;border:1px solid #e5e7eb;transition:all .3s;position:relative;overflow:hidden;}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:#f47920;transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.service-card:hover{box-shadow:0 12px 40px rgba(26,60,110,0.12);transform:translateY(-4px);}
+.service-card:hover::after{transform:scaleX(1);}
+.service-icon{width:52px;height:52px;background:linear-gradient(135deg,#1a3c6e,#2557a7);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.service-icon svg{width:26px;height:26px;fill:#fff;}
+.service-title{font-size:18px;font-weight:700;color:#1a3c6e;margin-bottom:10px;}
+.service-desc{color:#6b7280;font-size:14px;line-height:1.7;}
+
+/* CLIENTS */
+.clients-section{background:#fff;border-top:1px solid #f0f0f0;}
+.clients-label{text-align:center;margin-bottom:40px;}
+.clients-marquee{display:flex;gap:0;overflow:hidden;}
+.clients-track{display:flex;gap:0;animation:marquee 22s linear infinite;}
+.client-card{flex:0 0 200px;padding:20px 30px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid #f0f0f0;}
+.client-logo{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#1a3c6e;letter-spacing:1px;}
+.client-sub{font-size:10px;color:#9ca3af;letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%)}}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:40px;}
+.why-list{display:flex;flex-direction:column;gap:24px;margin-top:30px;}
+.why-item{display:flex;gap:16px;align-items:flex-start;}
+.why-check{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f47920,#d4600e);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.why-check svg{width:16px;height:16px;fill:#fff;}
+.why-item-title{font-weight:700;color:#1a3c6e;margin-bottom:4px;}
+.why-item-desc{color:#6b7280;font-size:14px;line-height:1.6;}
+.why-visual{background:linear-gradient(135deg,#1a3c6e,#0d1f3c);border-radius:16px;padding:50px;text-align:center;}
+.why-visual img{width:200px;height:200px;object-fit:contain;}
+.why-visual-text{color:#fff;margin-top:24px;font-size:16px;line-height:1.6;opacity:.8;}
+
+/* CONTACT */
+.contact-section{background:linear-gradient(135deg,#0d1f3c,#1a3c6e);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:50px;}
+.contact-info{color:#fff;}
+.contact-info-item{display:flex;gap:14px;margin-bottom:28px;align-items:flex-start;}
+.contact-icon{width:40px;height:40px;border-radius:8px;background:rgba(244,121,32,0.2);border:1px solid rgba(244,121,32,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-icon svg{width:18px;height:18px;fill:#f47920;}
+.contact-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.contact-value{color:#fff;font-size:15px;font-weight:500;line-height:1.5;}
+.contact-form-wrap{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:36px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
+  border-radius:6px;padding:12px 16px;color:#fff;font-family:'Barlow',sans-serif;font-size:14px;
+  outline:none;transition:border .2s;
+}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.35);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#f47920;}
+.form-group select{cursor:pointer;appearance:none;}
+.form-group select option{background:#1a3c6e;color:#fff;}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-submit{width:100%;background:#f47920;color:#fff;border:none;padding:15px;border-radius:6px;font-family:'Barlow',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.5px;text-transform:uppercase;}
+.form-submit:hover{background:#d4600e;}
+.form-success{display:none;text-align:center;color:#4ade80;font-weight:600;padding:20px;font-size:16px;}
+
+/* FOOTER */
+footer{background:#0a1628;padding:30px 40px;text-align:center;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-text{color:rgba(255,255,255,0.4);font-size:13px;}
+.footer-orange{color:#f47920;}
+
+/* SECTION TITLE DIVIDER */
+.title-line{width:60px;height:4px;background:#f47920;border-radius:2px;margin-top:14px;margin-bottom:36px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAQABAADASIAAhEBAxEB/8QAHQABAAEFAQEBAAAAAAAAAAAAAAcBAgMGCAUECf/EAGYQAQABAwIDAQcJEgkICAUDBQACAQMEBQYHERIhCBMiMTJBQhRDUVJhYnGBlBUWFxgjM1NUVXJ0gpGSk7Gy0SQ2VmNzlbPB0iY0RXWDhKHTNTdERmSiwsMlJ2WjtChXZnaF4eLw/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAQGAwUHAgH/xAAzEQEAAgIBAgQEBAYCAwEAAAAAAQIDBBEFEgYTITEWQVFSIjI0cRQVM0JhgSMkNUOxYv/aAAwDAQACEQMRAD8A7LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="APEXCON Logo">
+    <div class="nav-brand">APEX<span>CON</span> TECHNOLOGIES</div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get In Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">15+ Years of Excellence</div>
+      <h1 class="hero-title">Innovate.<br><span>Integrate.</span><br>Elevate.</h1>
+      <p class="hero-subtitle">Your trusted IT partner for consulting, software development, and technology manpower solutions — delivering digital transformation across Chennai and beyond.</p>
+      <div class="hero-tagline">
+        <div class="hero-tagline-item"><div class="hero-tagline-dot"></div>IT Consulting</div>
+        <div class="hero-tagline-item"><div class="hero-tagline-dot"></div>Development</div>
+        <div class="hero-tagline-item"><div class="hero-tagline-dot"></div>Manpower</div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start a Project</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-logo-wrap">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAQABAADASIAAhEBAxEB/8QAHQABAAEFAQEBAAAAAAAAAAAAAAcBAgMGCAUECf/EAGYQAQABAwIDAQcJEgkICAUDBQACAQMEBQYHERIhCBMiMTJBQhRDUVJhYnGBlBUWFxgjM1NUVXJ0gpGSk7Gy0SQ2VmNzlbPB0iY0RXWDhKHTNTdERmSiwsMlJ2WjtChXZnaF4eLw/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAQGAwUHAgH/xAAzEQEAAgIBAgQEBAYCAwEAAAAAAQIDBBEFEgYTITEWQVFSIjI0cRQVM0JhgSMkNUOxYv/aAAwDAQACEQMRAD8A7LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="APEXCON Logo" style="width:200px;height:200px;object-fit:contain;">
+        <div class="hero-years">
+          <div class="hero-years-num">15+</div>
+          <div class="hero-years-text">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Years Running</div></div>
+    <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Projects Delivered</div></div>
+    <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Resources Placed</div></div>
+    <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Happy Clients</div></div>
+    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Our Core Services</h2>
+    <div class="title-line"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="service-title">IT Consultancy</div>
+        <p class="service-desc">Strategic technology consulting to align your IT infrastructure with business goals. We analyze, recommend, and implement solutions that drive measurable ROI.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3m8 0h3a2 2 0 002-2v-3M9 9h6M9 13h6M9 17h4"/></svg>
+        </div>
+        <div class="service-title">New Project Development</div>
+        <p class="service-desc">End-to-end software development for new digital products — web apps, mobile apps, enterprise platforms — built with modern technology stacks and agile methodology.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="service-title">Existing System Enhancement</div>
+        <p class="service-desc">We take over and transform your legacy systems — re-engineering, modernizing, and optimizing existing applications to meet today's performance and scalability demands.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="service-title">IT Manpower Supply</div>
+        <p class="service-desc">Skilled IT resources on demand — developers, architects, QA engineers, project managers, and more. Flexible staffing models tailored to your project needs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <div class="service-title">Digital Transformation</div>
+        <p class="service-desc">Guide your organization through end-to-end digital transformation — from cloud migration to process automation — ensuring smooth transitions and lasting results.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div class="service-title">IT Support & Maintenance</div>
+        <p class="service-desc">Round-the-clock application support, system monitoring, and maintenance services to ensure your business runs without interruptions and downtime is minimized.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section" id="clients">
+  <div class="section-inner">
+    <div class="clients-label">
+      <div class="section-tag" style="text-align:center;">Trusted By Industry Leaders</div>
+      <h2 class="section-title" style="text-align:center;font-size:36px;">Companies We Work With</h2>
+      <div class="title-line" style="margin:14px auto 36px;"></div>
+    </div>
+    <div class="clients-marquee">
+      <div class="clients-track">
+        <div class="client-card"><div class="client-logo">TCS</div><div class="client-sub">Tata Consultancy</div></div>
+        <div class="client-card"><div class="client-logo">TECH M</div><div class="client-sub">Tech Mahindra</div></div>
+        <div class="client-card"><div class="client-logo">WIPRO</div><div class="client-sub">Wipro Limited</div></div>
+        <div class="client-card"><div class="client-logo">INFOSYS</div><div class="client-sub">Infosys Ltd</div></div>
+        <div class="client-card"><div class="client-logo">HCL</div><div class="client-sub">HCL Technologies</div></div>
+        <div class="client-card"><div class="client-logo">CTS</div><div class="client-sub">Cognizant</div></div>
+        <div class="client-card"><div class="client-logo">L&T</div><div class="client-sub">L&T Infotech</div></div>
+        <div class="client-card"><div class="client-logo">MPHASIS</div><div class="client-sub">Mphasis Ltd</div></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="client-card"><div class="client-logo">TCS</div><div class="client-sub">Tata Consultancy</div></div>
+        <div class="client-card"><div class="client-logo">TECH M</div><div class="client-sub">Tech Mahindra</div></div>
+        <div class="client-card"><div class="client-logo">WIPRO</div><div class="client-sub">Wipro Limited</div></div>
+        <div class="client-card"><div class="client-logo">INFOSYS</div><div class="client-sub">Infosys Ltd</div></div>
+        <div class="client-card"><div class="client-logo">HCL</div><div class="client-sub">HCL Technologies</div></div>
+        <div class="client-card"><div class="client-logo">CTS</div><div class="client-sub">Cognizant</div></div>
+        <div class="client-card"><div class="client-logo">L&T</div><div class="client-sub">L&T Infotech</div></div>
+        <div class="client-card"><div class="client-logo">MPHASIS</div><div class="client-sub">Mphasis Ltd</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="about" style="background:#fff;padding:90px 40px;">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div>
+        <div class="section-tag">Why Apexcon</div>
+        <h2 class="section-title">15 Years of Proven Excellence</h2>
+        <div class="title-line"></div>
+        <p class="section-desc">We've been at the forefront of IT services in Chennai for over a decade and a half — building lasting partnerships and delivering transformative technology solutions.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="why-item-title">Deep Industry Experience</div><div class="why-item-desc">15+ years operating in the IT landscape with hands-on expertise across diverse technology domains and industry verticals.</div></div>
+          </div>
+          <div class="why-item">
+            <div class="why-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="why-item-title">Skilled Resource Pool</div><div class="why-item-desc">Access to a vetted pool of IT professionals — ready to join your team for short-term or long-term engagements.</div></div>
+          </div>
+          <div class="why-item">
+            <div class="why-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="why-item-title">End-to-End Solutions</div><div class="why-item-desc">From ideation to deployment and support — we cover the full technology lifecycle so you never need to look elsewhere.</div></div>
+          </div>
+          <div class="why-item">
+            <div class="why-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="why-item-title">Partner-Level Commitment</div><div class="why-item-desc">We work as an extension of your team — transparent, agile, and deeply committed to your success and satisfaction.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAQABAADASIAAhEBAxEB/8QAHQABAAEFAQEBAAAAAAAAAAAAAAcBAgMGCAUECf/EAGYQAQABAwIDAQcJEgkICAUDBQACAQMEBQYHERIhCBMiMTJBQhRDUVJhYnGBlBUWFxgjM1NUVXJ0gpGSk7Gy0SQ2VmNzlbPB0iY0RXWDhKHTNTdERmSiwsMlJ2WjtChXZnaF4eLw/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAQGAwUHAgH/xAAzEQEAAgIBAgQEBAYCAwEAAAAAAQIDBBEFEgYTITEWQVFSIjI0cRQVM0JhgSMkNUOxYv/aAAwDAQACEQMRAD8A7LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="logo" style="width:180px;height:180px;object-fit:contain;">
+        <div class="why-visual-text">Innovate • Integrate • Elevate<br><br>Delivering technology excellence since 2009 from the heart of Chennai.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <div class="section-tag" style="color:rgba(244,121,32,0.9);">Get In Touch</div>
+      <h2 class="section-title" style="color:#fff;">Start Your Project Today</h2>
+      <div class="title-line" style="margin:14px auto 0;"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div style="margin-bottom:36px;">
+          <p style="color:rgba(255,255,255,0.65);font-size:16px;line-height:1.7;">Have a project in mind or looking for IT resources? Fill in the enquiry form and our team will get back to you within 24 hours.</p>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">+91 89398 24631</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-value">No. 369, Nallathambi Main Rd,<br>Pallavaram, Chennai,<br>Tamil Nadu 600075</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-value">+91 89398 24631</div>
+          </div>
+        </div>
+        <div style="margin-top:30px;padding:20px;background:rgba(255,255,255,0.06);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+          <div style="color:#f47920;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Business Hours</div>
+          <div style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.8;">Mon – Fri: 9:00 AM – 6:30 PM<br>Sat: 9:00 AM – 2:00 PM<br>Sun: Closed</div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <div id="form-success" class="form-success">✓ Thank you! We'll contact you within 24 hours.</div>
+        <div id="enquiry-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" id="f-name" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" id="f-email" placeholder="you@company.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Mobile / WhatsApp</label>
+              <input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="form-group">
+              <label>Company / Domain</label>
+              <input type="text" id="f-company" placeholder="Your company name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Years of Experience (for resource requests)</label>
+            <select id="f-exp">
+              <option value="">Select experience range</option>
+              <option>0–2 Years (Fresher)</option>
+              <option>2–5 Years</option>
+              <option>5–10 Years</option>
+              <option>10+ Years</option>
+              <option>Not applicable</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select id="f-service">
+              <option value="">Choose a service</option>
+              <option>IT Consultancy</option>
+              <option>New Project Development</option>
+              <option>Existing System Enhancement</option>
+              <option>IT Manpower Supply</option>
+              <option>Digital Transformation</option>
+              <option>IT Support & Maintenance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Message / Requirements</label>
+            <textarea id="f-message" placeholder="Describe your project or requirements in brief..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;letter-spacing:1px;margin-bottom:8px;">APEX<span style="color:#f47920;">CON</span> TECHNOLOGIES</div>
+    <div style="color:rgba(255,255,255,0.3);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Innovate • Integrate • Elevate</div>
+    <div class="footer-text">No. 369, Nallathambi Main Rd, Pallavaram, Chennai, Tamil Nadu 600075 &nbsp;|&nbsp; <span class="footer-orange">+91 89398 24631</span></div>
+    <div class="footer-text" style="margin-top:8px;">© 2024 Apexcon Technologies. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+function submitForm(){
+  var n=document.getElementById('f-name').value;
+  var e=document.getElementById('f-email').value;
+  if(!n||!e){alert('Please fill in your name and email.');return;}
+  document.getElementById('enquiry-form').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
